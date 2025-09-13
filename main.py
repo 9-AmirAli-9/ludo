@@ -1,5 +1,10 @@
 import random
 
+def roll_dice():
+     dice=random.randrange(1,7)
+
+     return dice
+
 def main():
      print('welcome to my ludo game.')
      player=[]
@@ -29,9 +34,14 @@ def main():
      while running:
           round=0
           i=round%n
-          tass=random.randrange(1,7)
-          if player[i]['in']==1:
-               player[i]['block']+=tass
-          
+          dice=roll_dice()
+          while dice==6:
+               if player[i]['in']==1:
+                    player[i]['block']+=dice
+               dice=roll_dice()
+
+          if dice!=6:
+               if player[i]['in']==1:
+                    player[i]['block']+=dice
 
 
